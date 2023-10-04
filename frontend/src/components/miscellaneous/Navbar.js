@@ -33,7 +33,7 @@ const Navbar = () => {
         h="100%"
         w="100%"
         bg={"white"}
-        m="10px 0 5px 0"
+        mb="5px"
         borderRadius="lg"
         textAlign={"center"}
       >

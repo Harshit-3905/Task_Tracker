@@ -1,22 +1,21 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
 
-const Quote = () => {
+const Sidebar = () => {
   return (
     <Box
+      width="20%"
+      height="100%"
+      bg="white"
       d="flex"
-      p={3}
-      h="10%"
-      bg={"white"}
-      w="100%"
-      mt="5px"
+      p="10px 0 10px 0"
+      m="5px 0 5px 0"
       borderRadius="lg"
-      borderWidth="1px"
       textAlign={"center"}
     >
-      Quote
+      SideBar
     </Box>
   );
 };
 
-export default Quote;
+export default Sidebar;
