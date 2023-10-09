@@ -22,6 +22,7 @@ const Signup = () => {
   const toast = useToast();
   const history = useHistory();
   const handleClick = () => setShow(!show);
+
   const submtHandler = async () => {
     setLoading(true);
     if (!name || !email || !password || !confirmPassword) {
@@ -54,7 +55,7 @@ const Signup = () => {
         },
       };
       const { data } = await axios.post(
-        "/api/user",
+        "http://localhost:5000/api/user",
         { name, email, password },
         config
       );
@@ -67,8 +68,9 @@ const Signup = () => {
       });
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
-      history.push("/chats");
+      history.push("/home");
     } catch (err) {
+      console.log(err.response.data);
       toast({
         title: "Error Occured",
         status: "error",
