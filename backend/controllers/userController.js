@@ -2,7 +2,7 @@ const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, pic } = req.body;
   if (!name || !email || !password) {
     res.status(400);
     throw new Error("Please fill all the fields");
@@ -18,6 +18,7 @@ const registerUser = asyncHandler(async (req, res) => {
     name,
     email,
     password,
+    pic,
   });
 
   if (user) {
@@ -25,6 +26,7 @@ const registerUser = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      pic: user.pic,
     });
   } else {
     res.status(400);
