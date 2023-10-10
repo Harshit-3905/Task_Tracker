@@ -3,27 +3,17 @@ import {
   HStack,
   Button,
   Text,
-  Menu,
-  MenuButton,
-  MenuList,
   Drawer,
   DrawerBody,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
-  MenuItem,
 } from "@chakra-ui/react";
+import { HamburgerIcon } from "@chakra-ui/icons";
 import { useDisclosure } from "@chakra-ui/hooks";
-import { useHistory } from "react-router-dom";
-import { ChevronDownIcon, HamburgerIcon } from "@chakra-ui/icons";
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const history = useHistory();
-  const logoutHandler = () => {
-    localStorage.removeItem("userInfo");
-    history.push("/");
-  };
   return (
     <div>
       <HStack
@@ -50,17 +40,7 @@ const Navbar = () => {
         <Text fontSize="3xl" fontFamily={"Satisfy"} color="black">
           Task Tracker
         </Text>
-        <div>
-          <Menu>
-            <MenuButton
-              as={Button}
-              rightIcon={<ChevronDownIcon />}
-            ></MenuButton>
-            <MenuList>
-              <MenuItem onClick={logoutHandler}>Log Out</MenuItem>
-            </MenuList>
-          </Menu>
-        </div>
+        <Button>Start Timer</Button>
       </HStack>
       <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
