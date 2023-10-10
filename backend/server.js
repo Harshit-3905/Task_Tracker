@@ -24,4 +24,7 @@ app.use(express.json());
 const userRoutes = require("./routes/userRoutes");
 app.use("/api/user", userRoutes);
 
+const taskRoutes = require("./routes/taskRoutes");
+app.use("/api/task", taskRoutes);
+
 app.listen(PORT, console.log(`Server Started on Port ${PORT}`));
