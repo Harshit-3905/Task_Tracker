@@ -4,20 +4,19 @@ import axios from "axios";
 
 const Quote = () => {
   const [quote, setQuote] = useState("");
-  const QuoteGenerator = async () => {
-    const q = await axios.get("https://api.quotable.io/random");
-    console.log(q.data);
-    setQuote(q.data.content);
-  };
   useEffect(() => {
-    QuoteGenerator();
+    let q;
+    axios.get("https://api.quotable.io/random").then((response) => {
+      q = response.data.content;
+      setQuote(q);
+    });
   }, []);
-
   return (
     <Box
       d="flex"
+      marginTop={3}
       p={3}
-      h="10%"
+      h="6%"
       bg={"white"}
       w="100%"
       mt="5px"
