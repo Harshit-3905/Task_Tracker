@@ -17,12 +17,60 @@ const Signup = () => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [pic, setPic] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
   const [loading, setLoading] = useState(false);
   const toast = useToast();
   const history = useHistory();
   const handleClick = () => setShow(!show);
 
+  const postDetails = (pics) => {
+    setLoading(true);
+    if (pics === undefined) {
+      toast({
+        title: "Please select an image",
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+      return;
+    }
+    if (
+      pics.type === "image/jpeg" ||
+      pics.type === "image/png" ||
+      pics.type === "image/jpg"
+    ) {
+      const data = new FormData();
+      data.append("file", pics);
+      data.append("upload_preset", "ChatVerse");
+      data.append("cloud_name", "drbl7c8wq");
+      fetch("https://api.cloudinary.com/v1_1/drbl7c8wq/image/upload", {
+        method: "post",
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setPic(data.url.toString());
+          console.log(data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoading(false);
+        });
+    } else {
+      toast({
+        title: "Please select an image",
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+      setLoading(false);
+      return;
+    }
+  };
   const submtHandler = async () => {
     setLoading(true);
     if (!name || !email || !password || !confirmPassword) {
@@ -56,7 +104,7 @@ const Signup = () => {
       };
       const { data } = await axios.post(
         "http://localhost:5000/api/user",
-        { name, email, password },
+        { name, email, password, pic, numberofTasksCompleted: 0 },
         config
       );
       toast({
@@ -70,7 +118,6 @@ const Signup = () => {
       setLoading(false);
       history.push("/home");
     } catch (err) {
-      console.log(err.response.data);
       toast({
         title: "Error Occured",
         status: "error",
@@ -126,6 +173,15 @@ const Signup = () => {
             </Button>
           </InputRightElement>
         </InputGroup>
+      </FormControl>
+      <FormControl id="pic">
+        <FormLabel>Upload Your Picture</FormLabel>
+        <Input
+          type="file"
+          p={"1.5"}
+          accept="image/*"
+          onChange={(e) => postDetails(e.target.files[0])}
+        />
       </FormControl>
       <Button
         colorScheme="teal"
