@@ -1,7 +1,16 @@
 import React from "react";
-import { Box } from "@chakra-ui/react";
+import {
+  Box,
+  Avatar,
+  Table,
+  Tbody,
+  Tr,
+  Td,
+  TableContainer,
+} from "@chakra-ui/react";
 
 const Profile = () => {
+  const user = JSON.parse(localStorage.getItem("userInfo"));
   return (
     <Box
       d="flex"
@@ -13,8 +22,26 @@ const Profile = () => {
       borderRadius="lg"
       borderWidth="1px"
       textAlign={"center"}
+      alignItems={"center"}
+      justifyItems={"center"}
     >
-      Profile
+      <Avatar name={user.name} src={user.pic} size="2xl"></Avatar>
+      <Box width="70%" d="flex" alignContent={"center"} justifyItems={"center"}>
+        <TableContainer pt={6} p={6} justifySelf={"center"}>
+          <Table variant="striped" colorScheme="teal">
+            <Tbody>
+              <Tr>
+                <Td>Name</Td>
+                <Td>{user.name}</Td>
+              </Tr>
+              <Tr>
+                <Td>Email</Td>
+                <Td>{user.email}</Td>
+              </Tr>
+            </Tbody>
+          </Table>
+        </TableContainer>
+      </Box>
     </Box>
   );
 };
