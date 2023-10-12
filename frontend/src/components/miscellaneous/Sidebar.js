@@ -7,6 +7,9 @@ import { useHistory } from "react-router-dom";
 
 const Sidebar = () => {
   const history = useHistory();
+  const userName = JSON.parse(localStorage.getItem("userInfo")).name;
+  const userEmail = JSON.parse(localStorage.getItem("userInfo")).email;
+  const pic_url = JSON.parse(localStorage.getItem("userInfo")).pic;
   const profileHandler = () => {
     history.push("/profile");
   };
@@ -31,7 +34,7 @@ const Sidebar = () => {
       borderRadius="lg"
       textAlign={"center"}
     >
-      <Box h="100%" w="100%" p={8}>
+      <Box h="100%" w="100%" p={6}>
         <VStack width="100%" height="100%" alignItems="left">
           <HStack height="10%" w="100%">
             <Image
@@ -39,8 +42,12 @@ const Sidebar = () => {
               boxSize="150px"
               height="50px"
               width="50px"
+              src={pic_url}
             />
-            <Text>User Email</Text>
+            <VStack gap={-2} d="flex" alignItems="flex-start">
+              <Text>{userName}</Text>
+              <Text>{userEmail}</Text>
+            </VStack>
           </HStack>
           <HStack
             height="40px"
