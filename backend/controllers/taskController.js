@@ -9,8 +9,7 @@ const addTask = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Please fill all the fields");
   }
-  const user = await User.findOne({ email });
-  const authorId = user._id;
+  const authorId = email;
   const task = await Task.create({
     title,
     description,
@@ -22,6 +21,7 @@ const addTask = asyncHandler(async (req, res) => {
     res.status(201).json({
       _id: task._id,
       title: task.title,
+      description: task.description,
       authorId: task.authorId,
     });
   } else {
@@ -30,4 +30,52 @@ const addTask = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { addTask };
+const findTasks = async (req, res) => {
+  try {
+    const tasks = await Task.find({ authorId: req.query.email }).sort({
+      timestamps: -1,
+    });
+    res.json(tasks);
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+    res.status(500).json({ error: "Server error" });
+  }
+};
+const toggleTasks = async (req, res) => {
+  try {
+    const taskRef = await Task.findById(req.query.id);
+    const task = await Task.findOneAndUpdate(
+      { _id: req.query.id },
+      { completed: !taskRef.completed }
+    );
+    await task.save();
+    res.json(task);
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+    res.status(500).json({ error: "Server error" });
+  }
+};
+const updateTask = async (req, res) => {
+  try {
+    await Task.findOneAndUpdate(
+      { _id: req.query.id },
+      { title: req.body.title }
+    );
+    const task = await Task.findById(req.query.id);
+    res.json(task);
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+    res.status(500).json({ error: "Server error" });
+  }
+};
+const deleteTask = async (req, res) => {
+  try {
+    const task = await Task.findByIdAndDelete(req.query.id);
+    res.json(task);
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+    res.status(500).json({ error: "Server error" });
+  }
+};
+
+module.exports = { addTask, findTasks, toggleTasks, updateTask, deleteTask };
