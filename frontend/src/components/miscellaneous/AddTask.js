@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { HStack, VStack, Input, Button, useToast } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addTask } from "../../redux/actions/index";
 
 const AddTask = () => {
-  const [title, setTitle] = useState();
-  const [description, setDescription] = useState();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
   const toast = useToast();
+  const dispatch = useDispatch();
 
   const taskAppend = async () => {
     setLoading(true);
-    if (!title) {
+    if (title.length === 0) {
       toast({
         title: "Please Add Title",
         status: "warning",
@@ -23,17 +25,8 @@ const AddTask = () => {
       return;
     }
     try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
       const email = JSON.parse(localStorage.getItem("userInfo")).email;
-      const data = await axios.post(
-        "http://localhost:5000/api/task/",
-        { title, description, email },
-        config
-      );
+      dispatch(addTask({ title, description, email }));
       toast({
         title: "Task Added",
         status: "success",
@@ -41,6 +34,8 @@ const AddTask = () => {
         isClosable: true,
         position: "bottom",
       });
+      setTitle("");
+      setDescription("");
       setLoading(false);
     } catch (err) {
       console.log(err);
@@ -55,7 +50,7 @@ const AddTask = () => {
     }
   };
   return (
-    <VStack width="100%" bg={"white"} borderRadius="lg" p={3}>
+    <VStack width="100%" bg={"white"} borderRadius="lg" p={3} h="25%">
       <HStack width="100%" height="40%">
         <Input
           placeholder="Title"
