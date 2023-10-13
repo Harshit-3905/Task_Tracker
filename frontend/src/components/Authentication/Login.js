@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { useColorModeValue } from "@chakra-ui/color-mode";
 
 const Login = () => {
   const [show, setShow] = useState(false);
@@ -20,6 +21,8 @@ const Login = () => {
   const toast = useToast();
   const history = useHistory();
   const handleClick = () => setShow(!show);
+  const color = useColorModeValue("black", "white");
+  const bgColor = useColorModeValue("white", "gray.700");
 
   const submitHandler = async () => {
     setLoading(true);
@@ -71,9 +74,9 @@ const Login = () => {
   };
 
   return (
-    <VStack spacing="5px" color="black">
+    <VStack spacing="5px" color={color} bg={bgColor}>
       <FormControl id="loginemail" isRequired>
-        <FormLabel>E-mail</FormLabel>
+        <FormLabel color={color}>E-mail</FormLabel>
         <Input
           placeholder="Enter E-mail"
           value={email}
@@ -81,7 +84,7 @@ const Login = () => {
         />
       </FormControl>
       <FormControl id="loginpassword" isRequired>
-        <FormLabel>Password</FormLabel>
+        <FormLabel color={color}>Password</FormLabel>
         <InputGroup>
           <Input
             placeholder="Enter Password"
@@ -97,11 +100,12 @@ const Login = () => {
         </InputGroup>
       </FormControl>
       <Button
-        colorScheme="green"
+        colorScheme="teal"
         width="100%"
         style={{ marginTop: 15 }}
         onClick={submitHandler}
         isLoading={loading}
+        color={color}
       >
         Login
       </Button>

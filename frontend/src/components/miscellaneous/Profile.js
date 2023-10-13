@@ -7,18 +7,21 @@ import {
   Tr,
   Td,
   TableContainer,
+  Center,
 } from "@chakra-ui/react";
+import { useColorModeValue } from "@chakra-ui/color-mode";
 
 const Profile = () => {
   const user = JSON.parse(localStorage.getItem("userInfo"));
+  const color = useColorModeValue("black", "white");
+  const bgColor = useColorModeValue("white", "gray.700");
   return (
     <Box
       d="flex"
       p={3}
       h="100%"
-      bg={"white"}
+      bg={bgColor}
       w="100%"
-      m="5px 0 5px 0"
       borderRadius="lg"
       borderWidth="1px"
       textAlign={"center"}
@@ -26,10 +29,10 @@ const Profile = () => {
       justifyItems={"center"}
     >
       <Avatar name={user.name} src={user.pic} size="2xl"></Avatar>
-      <Box width="70%" d="flex" alignContent={"center"} justifyItems={"center"}>
-        <TableContainer pt={6} p={6} justifySelf={"center"}>
+      <Center>
+        <TableContainer pt={6} p={6} width="70%">
           <Table variant="striped" colorScheme="teal">
-            <Tbody>
+            <Tbody color={color}>
               <Tr>
                 <Td>Name</Td>
                 <Td>{user.name}</Td>
@@ -41,7 +44,7 @@ const Profile = () => {
             </Tbody>
           </Table>
         </TableContainer>
-      </Box>
+      </Center>
     </Box>
   );
 };

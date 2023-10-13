@@ -1,30 +1,34 @@
 import React, { useState, useEffect } from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import axios from "axios";
+import { useColorModeValue } from "@chakra-ui/color-mode";
 
 const Quote = () => {
   const [quote, setQuote] = useState("");
   useEffect(() => {
     let q;
-    axios.get("https://api.quotable.io/random").then((response) => {
-      q = response.data.content;
-      setQuote(q);
-    });
+    axios
+      .get("https://api.quotable.io/random?maxLength=50")
+      .then((response) => {
+        q = response.data.content;
+        setQuote(q);
+      });
   }, []);
+  const color = useColorModeValue("black", "white");
+  const bgColor = useColorModeValue("white", "gray.700");
   return (
     <Box
       d="flex"
-      marginTop={3}
-      p={3}
-      h="6%"
-      bg={"white"}
+      h="10%"
+      bg={bgColor}
       w="100%"
-      mt="5px"
       borderRadius="lg"
-      borderWidth="1px"
       textAlign={"center"}
+      fontSize="15px"
     >
-      {quote}
+      <Text pt={2} color={color}>
+        {quote}
+      </Text>
     </Box>
   );
 };

@@ -5,7 +5,7 @@ import { Box } from "@chakra-ui/react";
 
 const Task = () => {
   return (
-    <Box height="80%" w="100%" marginBottom={6}>
+    <Box height="85%" w="100%" marginBottom={4} gap={-2}>
       <AddTask />
       <TaskContainer />
     </Box>

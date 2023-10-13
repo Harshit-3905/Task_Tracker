@@ -11,6 +11,7 @@ import {
 import { useToast } from "@chakra-ui/react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { useColorModeValue } from "@chakra-ui/color-mode";
 
 const Signup = () => {
   const [show, setShow] = useState(false);
@@ -23,6 +24,8 @@ const Signup = () => {
   const toast = useToast();
   const history = useHistory();
   const handleClick = () => setShow(!show);
+  const color = useColorModeValue("black", "white");
+  const bgColor = useColorModeValue("white", "gray.700");
 
   const postDetails = (pics) => {
     setLoading(true);
@@ -120,6 +123,7 @@ const Signup = () => {
     } catch (err) {
       toast({
         title: "Error Occured",
+        description: err.response.data.message,
         status: "error",
         duration: 5000,
         isClosable: true,
@@ -129,12 +133,13 @@ const Signup = () => {
     }
   };
   return (
-    <VStack spacing="5px" color="black">
+    <VStack spacing="5px" color={color} bg={bgColor}>
       <FormControl id="first-name" isRequired>
         <FormLabel>Name</FormLabel>
         <Input
           placeholder="Enter your Name"
           onChange={(e) => setName(e.target.value)}
+          color={color}
         />
       </FormControl>
       <FormControl id="email" isRequired>
@@ -142,6 +147,7 @@ const Signup = () => {
         <Input
           placeholder="Enter your Email"
           onChange={(e) => setEmail(e.target.value)}
+          color={color}
         />
       </FormControl>
       <FormControl id="password" isRequired>

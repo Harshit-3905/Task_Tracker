@@ -10,11 +10,13 @@ import {
   TabPanels,
 } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
-
+import { useColorModeValue } from "@chakra-ui/color-mode";
 import Login from "../components/Authentication/Login";
 import SignUp from "../components/Authentication/SignUp";
 
 const Homepage = () => {
+  const color = useColorModeValue("black", "white");
+  const bgColor = useColorModeValue("white", "gray.700");
   const history = useHistory();
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
@@ -27,23 +29,27 @@ const Homepage = () => {
       <Box
         d="flex"
         justifyContent="center"
-        p={3}
-        bg={"white"}
+        p={2}
+        bg={bgColor}
         w="100%"
-        m="40px 0 15px 0"
+        m="10px 0 10px 0"
         borderRadius="lg"
         borderWidth="1px"
         textAlign={"center"}
       >
-        <Text fontSize={"3xl"} fontFamily={"Satisfy"} color="black">
+        <Text fontSize={"2xl"} fontFamily={"Satisfy"} color={color}>
           Task Tracker
         </Text>
       </Box>
-      <Box bg="white" w="100%" p={4} borderRadius="lg" borderWidth="1px">
+      <Box bg={bgColor} w="100%" p={2} borderRadius="lg" borderWidth="1px">
         <Tabs variant="soft-rounded">
           <TabList mb="1em">
-            <Tab width="50%">Login</Tab>
-            <Tab width="50%">Sign Up</Tab>
+            <Tab width="50%" color={color}>
+              Login
+            </Tab>
+            <Tab width="50%" color={color}>
+              Sign Up
+            </Tab>
           </TabList>
           <TabPanels>
             <TabPanel>
