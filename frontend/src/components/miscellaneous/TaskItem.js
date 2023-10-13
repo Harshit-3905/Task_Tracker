@@ -5,6 +5,7 @@ import { toggleTask, updateTask, deleteTask } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { useColorModeValue } from "@chakra-ui/color-mode";
+import axios from "axios";
 
 const TaskItem = (task) => {
   const [editing, setEditing] = useState(false);
@@ -23,6 +24,11 @@ const TaskItem = (task) => {
   };
   const color = useColorModeValue("black", "white");
   const bgColor = useColorModeValue("white", "gray.700");
+  const onCompletion = async () => {
+    const email = JSON.parse(localStorage.getItem("userInfo")).email;
+    axios.put("http://localhost:5000/api/user/increment", { email });
+    dispatch(toggleTask(task.id));
+  };
   return (
     <HStack
       height="13%"
@@ -38,7 +44,7 @@ const TaskItem = (task) => {
         pl={4}
         color={color}
         isChecked={task.completed}
-        onChange={() => dispatch(toggleTask(task.id))}
+        onChange={onCompletion}
       ></Checkbox>
       <HStack w="85%" pl={2}>
         <Text fontSize="lg" style={textStyle} color={color}>
