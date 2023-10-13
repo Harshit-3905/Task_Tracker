@@ -18,7 +18,7 @@ const Profile = () => {
   return (
     <Box
       d="flex"
-      p={3}
+      p={5}
       h="100%"
       bg={bgColor}
       w="100%"
@@ -32,7 +32,7 @@ const Profile = () => {
       <Center>
         <TableContainer pt={6} p={6} width="70%">
           <Table variant="striped" colorScheme="teal">
-            <Tbody color={color}>
+            <Tbody color={color} fontSize="15px">
               <Tr>
                 <Td>Name</Td>
                 <Td>{user.name}</Td>
