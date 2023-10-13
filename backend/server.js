@@ -13,7 +13,9 @@ connectDB();
 const cors = require("cors");
 
 // Configure CORS to allow requests from http://localhost:3000
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(
+  cors({ origin: "chrome-extension://mjcajhldjkidjkennkgajaodhnagpegj" })
+);
 
 app.get("/", (req, res) => {
   res.send("API is running...");

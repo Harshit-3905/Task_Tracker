@@ -3,7 +3,7 @@ const Task = require("../models/taskModel");
 const User = require("../models/userModel");
 
 const addTask = asyncHandler(async (req, res) => {
-  const { title, description, email } = req.body;
+  const { title, email } = req.body;
   const completed = false;
   if (!title || !email) {
     res.status(400);
@@ -12,7 +12,6 @@ const addTask = asyncHandler(async (req, res) => {
   const authorId = email;
   const task = await Task.create({
     title,
-    description,
     authorId,
     completed,
   });
@@ -21,7 +20,6 @@ const addTask = asyncHandler(async (req, res) => {
     res.status(201).json({
       _id: task._id,
       title: task.title,
-      description: task.description,
       authorId: task.authorId,
     });
   } else {
