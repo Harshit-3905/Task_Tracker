@@ -19,6 +19,7 @@ const registerUser = asyncHandler(async (req, res) => {
     email,
     password,
     pic,
+    numberofTasksCompleted: 0,
   });
 
   if (user) {
@@ -49,4 +50,26 @@ const authUser = asyncHandler(async (req, res) => {
     throw new Error("Invalid Email or Password");
   }
 });
-module.exports = { registerUser, authUser };
+
+const incrementTask = asyncHandler(async (req, res) => {
+  try {
+    const email = req.body.email;
+    const user = await User.findOne({ email });
+    user.numberofTasksCompleted += 1;
+    await user.save();
+    res.json(user);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+const getLeaderboard = asyncHandler(async (req, res) => {
+  try {
+    const users = await User.find({}).sort({ numberofTasksCompleted: -1 });
+    res.json(users);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+module.exports = { registerUser, authUser, incrementTask, getLeaderboard };
