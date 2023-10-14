@@ -1,17 +1,22 @@
 {
-  "name": "Task Tracker",
-  "description": "A simple task tracker",
-  "version": "1.0",
   "manifest_version": 3,
+  "name": "Task Tracker",
+  "description": "Your Productivity Companion",
+  "version": "1.0",
   "action": {
     "default_title": "Task_Tracker",
-    "default_popup": "index.html",
-    "default_icons": {
-      "16": "logo192.png",
-      "128": "logo512.png"
-    },
-    "permissions": [
-      "scripting"
-    ]
-  }
+    "default_popup": "index.html"
+  },
+  "icons": {
+    "16": "logo192.png",
+    "128": "logo192.png"
+  },
+  "permissions": [
+    "scripting",
+    "storage",
+    "activeTab",
+    "tabs",
+    "webRequest",
+    "webNavigation"
+  ]
 }
