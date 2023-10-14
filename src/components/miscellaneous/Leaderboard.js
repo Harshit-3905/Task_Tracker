@@ -26,7 +26,7 @@ const Leaderboard = () => {
       .get("https://tasktrackerbackend-raao.onrender.com/api/user/leaderboard")
       .then((response) => {
         const leaderboardData = response.data;
-        setTopFive(leaderboardData.slice(0, 10));
+        setTopFive(leaderboardData.slice(0, 5));
       });
   }, []);
   return (
