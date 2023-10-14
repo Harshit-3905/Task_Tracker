@@ -23,7 +23,7 @@ const Timer = () => {
     setIsConfigure(isConfigure);
   }, [isConfigure]);
   return (
-    <Box height="100%" w="100%" bg={bgColor} borderRadius="lg">
+    <Box height="100%" w="50%" bg={bgColor} borderRadius="lg">
       <Clock
         updateConfigure={updateConfigure}
         pomodoro={pomodoro}
