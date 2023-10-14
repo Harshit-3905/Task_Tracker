@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import axios from "axios";
+import { useToast } from "@chakra-ui/react";
 
 const TaskItem = (task) => {
   const [editing, setEditing] = useState(false);
@@ -14,20 +15,45 @@ const TaskItem = (task) => {
     textDecoration: task.completed ? "line-through" : "none",
     display: editing ? "none" : "block",
   };
+  const toast = useToast();
   const dispatch = useDispatch();
   const onTaskChange = (e) => {
     setEditing(false);
     dispatch(updateTask(task.id, { title }));
+    toast({
+      title: "Task Successfully Edited",
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+      position: "bottom",
+    });
   };
   const refreshTaskList = async () => {
     await dispatch(deleteTask(task.id));
+    toast({
+      title: "Task Deleted",
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+      position: "bottom",
+    });
   };
   const color = useColorModeValue("black", "white");
   const bgColor = useColorModeValue("white", "gray.700");
   const onCompletion = async () => {
     const email = JSON.parse(localStorage.getItem("userInfo")).email;
-    axios.put("http://localhost:5000/api/user/increment", { email });
+    axios.put(
+      "https://tasktrackerbackend-raao.onrender.com/api/user/increment",
+      { email }
+    );
     dispatch(toggleTask(task.id));
+    toast({
+      title: "Task Completed",
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+      position: "bottom",
+    });
   };
   return (
     <HStack

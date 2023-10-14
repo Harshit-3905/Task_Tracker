@@ -22,10 +22,12 @@ const Leaderboard = () => {
   const bgColor = useColorModeValue("white", "gray.700");
   const [topFive, setTopFive] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/api/user/leaderboard").then((response) => {
-      const leaderboardData = response.data;
-      setTopFive(leaderboardData.slice(0, 10));
-    });
+    axios
+      .get("https://tasktrackerbackend-raao.onrender.com/api/user/leaderboard")
+      .then((response) => {
+        const leaderboardData = response.data;
+        setTopFive(leaderboardData.slice(0, 10));
+      });
   }, []);
   return (
     <Box

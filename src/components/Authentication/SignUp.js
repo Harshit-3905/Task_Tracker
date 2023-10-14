@@ -106,7 +106,7 @@ const Signup = () => {
         },
       };
       const { data } = await axios.post(
-        "http://localhost:5000/api/user",
+        "https://tasktrackerbackend-raao.onrender.com/api/user",
         { name, email, password, pic, numberofTasksCompleted: 0 },
         config
       );
