@@ -79,6 +79,7 @@ const TaskItem = (task) => {
         <Input
           size="lg"
           value={title}
+          height={"100%"}
           onChange={(e) => setTitle(e.target.value)}
           display={editing ? "block" : "none"}
           w="100%"
