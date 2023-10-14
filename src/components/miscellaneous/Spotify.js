@@ -12,6 +12,16 @@ const Spotify = () => {
   const [linkTaken, setLinkTaken] = React.useState(false);
   const toast = useToast();
   const playlistAdded = () => {
+    if (!playlistLink) {
+      toast({
+        title: "Please Enter a Link",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+      return;
+    }
     setLinkTaken(true);
     toast({
       title: "Playlist Added",
@@ -46,7 +56,7 @@ const Spotify = () => {
         </HStack>
       )}
       {linkTaken && (
-        <Box h="20%" w="100%">
+        <Box h="20%" w="100%" bg={"gray.700"}>
           <SpotifyEmbed src={playlistLink} />
         </Box>
       )}

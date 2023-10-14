@@ -111,7 +111,7 @@ const Clock = (props) => {
   }, [minutes, seconds]);
 
   return (
-    <VStack bg={bgColor}>
+    <VStack bg={bgColor} borderRadius="lg">
       <Box textAlign={"center"} pt={3}>
         <Text fontSize="20px" color={color} fontFamily={"Roboto"}>
           {isBreak ? "BREAK" : "SESSION"}
