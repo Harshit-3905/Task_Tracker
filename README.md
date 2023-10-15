@@ -1,6 +1,6 @@
 # Overview
 
-The Task Manager Chrome Extension is designed to help users efficiently manage their tasks and boost productivity by integrating a timer and the Pomodoro Technique. This README provides instructions on how to open and use the extension in your Chrome browser.
+In today's fast-paced world, staying organized and productive can be a daunting challenge. With numerous tasks, deadlines, and constant distractions, it's easy to feel overwhelmed. Enter Task Tracker, the Chrome extension designed to revolutionize the way you manage tasks and supercharge your productivity. Task Tracker is not just a task manager; it's a comprehensive productivity tool that offers unique features to keep you on track and motivated.
 
 ## Features
 
@@ -19,13 +19,11 @@ The Task Manager Chrome Extension is designed to help users efficiently manage t
 ## Installation
 
 1. Download the Extension Files: Clone this repository to your local machine.
-2. Open the terminal in `/frontend`
-3. Run `npm run build`
-4. Open Google Chrome. Click on the three dots in the upper-right corner to open the menu.
-5. Go to More tools > Extensions.
-6. Toggle on "Developer mode" in the upper-right corner of the Extensions page.
-7. Load the Extension: Click on the "Load unpacked" button.
-8. Browse and select the folder frontend/build
-9. Click the "Select Folder" button.
-10. The Task Manager Chrome Extension should now appear in your list of installed extensions.
-11. Pin the extension and boost your productivity
+2. Open Google Chrome. Click on the three dots in the upper-right corner to open the menu.
+3. Go to More tools > Extensions.
+4. Toggle on "Developer mode" in the upper-right corner of the Extensions page.
+5. Load the Extension: Click on the "Load unpacked" button.
+6. Browse and select the folder ```Task Tracker Extension```
+7. Click the "Select Folder" button.
+8. The Task Manager Chrome Extension should now appear in your list of installed extensions.
+9. Pin the extension and boost your productivity
