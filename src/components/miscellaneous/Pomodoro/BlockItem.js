@@ -6,7 +6,9 @@ const BlockItem = (props) => {
   const [isBlocked, setIsBlocked] = React.useState(props.blocked);
   const color = useColorModeValue("black", "white");
   const block = () => {
-    setIsBlocked(!isBlocked);
+    const newBlockedStatus = !isBlocked;
+    setIsBlocked(newBlockedStatus);
+    props.updateBlockItem(newBlockedStatus);
   };
   return (
     <HStack

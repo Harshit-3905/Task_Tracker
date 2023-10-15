@@ -12,7 +12,6 @@ const TaskContainer = () => {
   useEffect(() => {
     dispatch(getAllTasks());
   }, [dispatch]);
-  const color = useColorModeValue("black", "white");
   const bgColor = useColorModeValue("white", "gray.700");
   return (
     <VStack height="90%" width="100%" paddingTop={2}>
@@ -25,7 +24,6 @@ const TaskContainer = () => {
         borderRadius="lg"
         borderWidth="1px"
         textAlign={"center"}
-        overflow={"scroll"}
       >
         {tasks.map((task) => (
           <TaskItem

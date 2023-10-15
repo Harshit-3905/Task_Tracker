@@ -17,7 +17,7 @@ import BlockItem from "./BlockItem";
 const BlockModal = (props) => {
   const color = useColorModeValue("black", "white");
   const bgColor = useColorModeValue("white", "gray.700");
-  const { updateOpen, block, updateBlock } = props;
+  const { updateOpen, block, updateBlock, updateBlockItem } = props;
   const onSubmitForm = (e) => {
     // e.preventDefault();
     updateOpen(false);
@@ -45,11 +45,14 @@ const BlockModal = (props) => {
           <ModalHeader color={color}>Block Websites</ModalHeader>
           <ModalCloseButton />
           <ModalBody bg={bgColor}>
-            {block.map((web) => (
+            {block.map((web, index) => (
               <BlockItem
                 name={web.name}
                 website={web.website}
                 blocked={web.blocked}
+                updateBlockItem={(isBlocked) =>
+                  updateBlockItem(index, isBlocked)
+                }
               />
             ))}
             <Center mt={4} mb={4}>
