@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Task Tracker",
+  "description": "Your Productivity Companion",
+  "version": "1.0",
+  "action": {
+    "default_title": "Task_Tracker",
+    "default_popup": "index.html"
+  },
+  "icons": {
+    "16": "logo192.png",
+    "128": "logo192.png"
+  },
+  "permissions": [
+    "scripting",
+    "storage",
+    "activeTab",
+    "tabs",
+    "webRequest",
+    "webNavigation",
+    "notifications"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}
