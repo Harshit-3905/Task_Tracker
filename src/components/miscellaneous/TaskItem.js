@@ -39,7 +39,6 @@ const TaskItem = (task) => {
     });
   };
   const color = useColorModeValue("black", "white");
-  const bgColor = useColorModeValue("white", "gray.700");
   const onCompletion = async () => {
     const email = JSON.parse(localStorage.getItem("userInfo")).email;
     axios.put(
