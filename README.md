@@ -14,6 +14,8 @@ The Task Manager Chrome Extension is designed to help users efficiently manage t
 
 5. **Minimize Distractions:** Block time-wasting websites and tailor your list of restricted sites to regain focus and productivity.
 
+6. **Motivational Quotes:** The extension displays inspirational quotes to motivate and inspire users, helping them stay focused and positive while managing their tasks.
+
 ## Installation
 
 1. Download the Extension Files: Clone this repository to your local machine.
@@ -26,3 +28,4 @@ The Task Manager Chrome Extension is designed to help users efficiently manage t
 8. Browse and select the folder frontend/build
 9. Click the "Select Folder" button.
 10. The Task Manager Chrome Extension should now appear in your list of installed extensions.
+11. Pin the extension and boost your productivity
