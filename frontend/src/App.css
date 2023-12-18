@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Satisfy&family=Work+Sans:ital,wght@1,300;1,400&display=swap');
 
 .App {
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
   display: flex;
   background-image: url("background-image.jpg");
   background-size: cover;
