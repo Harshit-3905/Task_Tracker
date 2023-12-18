@@ -4,19 +4,23 @@ import Timer from "../components/miscellaneous/Pomodoro/Timer";
 import Navbar from "../components/miscellaneous/Navbar";
 import Quote from "../components/miscellaneous/Quote";
 import Spotify from "../components/miscellaneous/Spotify";
+import Sidebar from "../components/miscellaneous/Sidebar";
 
 const PomodoroPage = () => {
   return (
-    <VStack width="100vw" height="100vh" padding="5px 10px 5px 10px">
-      <Box w="100%">
-        <Navbar />
-      </Box>
-      <HStack w="100%" h="80%">
-        <Timer />
-        <Spotify />
+    <Box width="100vw" height="100vh" padding="15px">
+      <HStack style={{ width: "100%", height: "100%" }}>
+        <Sidebar />
+        <VStack width="80%" height="100%">
+          <Navbar />
+          <HStack w="100%" h="80%">
+            <Timer />
+            <Spotify />
+          </HStack>
+          <Quote />
+        </VStack>
       </HStack>
-      <Quote />
-    </VStack>
+    </Box>
   );
 };
 
