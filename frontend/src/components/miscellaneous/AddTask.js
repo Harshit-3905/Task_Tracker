@@ -51,7 +51,7 @@ const AddTask = () => {
     }
   };
   return (
-    <Box width="100%" bg={bgColor} borderRadius="lg" p={2} h="15%">
+    <Box width="100%" bg={bgColor} borderRadius="lg" p={2} h="13%">
       <HStack width="100%" height="100%">
         <Input
           placeholder="Title"
