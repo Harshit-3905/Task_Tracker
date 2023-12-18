@@ -21,7 +21,7 @@ import { useColorModeValue } from "@chakra-ui/color-mode";
 const Clock = (props) => {
   const color = useColorModeValue("black", "white");
   const bgColor = useColorModeValue("white", "gray.700");
-  const { updateOpen, updateConfigure, pomodoro, pomoBreak } = props;
+  const { updateConfigure, pomodoro, pomoBreak } = props;
   const [isPlay, setIsPlay] = useState(false);
   const [isBreak, setIsBreak] = useState(false);
   const [minutes, setMinutes] = useState();
@@ -86,9 +86,6 @@ const Clock = (props) => {
     restartFunction();
     updateConfigure(true);
   };
-  const changeOpen = () => {
-    updateOpen(true);
-  };
   // ChangingConfigure
   useEffect(() => {
     configureTime(pomodoro, pomoBreak);
@@ -141,9 +138,6 @@ const Clock = (props) => {
           <Icon as={AiOutlineReload} color={color} />
         </Button>
       </HStack>
-      <Button bg="red.500" mt={2} onClick={changeOpen}>
-        Block Websites
-      </Button>
     </VStack>
   );
 };
