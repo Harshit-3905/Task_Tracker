@@ -56,9 +56,9 @@ const TaskItem = (task) => {
   };
   return (
     <HStack
-      height="40px"
+      height="45px"
       width="100%"
-      bg={"teal.500"}
+      bg={"teal.400"}
       borderRadius="lg"
       borderWidth="1px"
       marginBottom={2}
@@ -85,7 +85,7 @@ const TaskItem = (task) => {
         ></Input>
       </HStack>
       <Button
-        size="sm"
+        size="md"
         onClick={
           editing
             ? onTaskChange
@@ -93,11 +93,11 @@ const TaskItem = (task) => {
                 setEditing((prevState) => !prevState);
               }
         }
-        bg="yellow.500"
+        bg="green.400"
       >
         <Icon as={editing ? AiFillSave : AiFillEdit} color={color} />
       </Button>
-      <Button size="sm" onClick={refreshTaskList} bg="red.500">
+      <Button size="md" onClick={refreshTaskList} bg="red.500">
         <Icon as={AiFillDelete} color={color} />
       </Button>
     </HStack>
