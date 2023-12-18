@@ -33,7 +33,7 @@ const Leaderboard = () => {
     <Box
       d="flex"
       p={3}
-      h="100%"
+      h="80%"
       bg={bgColor}
       w="100%"
       borderRadius="lg"
