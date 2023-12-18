@@ -24,7 +24,7 @@ Are you ready to take control of your tasks, your time, and your productivity? T
 
 1. Download the Extension Files: Clone this repository to your local machine.
 2. Open Google Chrome. Click on the three dots in the upper-right corner to open the menu.
-3. Go to More tools > Extensions.
+3. Go to Extensions > Manage Extensions
 4. Toggle on "Developer mode" in the upper-right corner of the Extensions page.
 5. Load the Extension: Click on the "Load unpacked" button.
 6. Browse and select the folder ```Task Tracker Extension```
