@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, VStack, HStack, Avatar, Text, Icon } from "@chakra-ui/react";
-import { FaUserAlt, FaTasks } from "react-icons/fa";
+import { FaUserAlt, FaTasks, FaClock } from "react-icons/fa";
 import { MdLeaderboard, MdLightMode } from "react-icons/md";
 import { BiLogOut } from "react-icons/bi";
 import { useHistory } from "react-router-dom";
@@ -23,6 +23,9 @@ const Sidebar = () => {
   const leaderboardHandler = () => {
     history.push("/leaderboard");
   };
+  const redirectPomodoroPage = () => {
+    history.push("/pomodoro");
+  };
   const logoutHandler = () => {
     localStorage.removeItem("userInfo");
     history.push("/");
@@ -30,7 +33,6 @@ const Sidebar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Box
-      width="100%"
       height="100%"
       bg={bgColor}
       d="flex"
@@ -84,6 +86,19 @@ const Sidebar = () => {
             <Icon as={MdLeaderboard} boxSize={6} />
             <Text color={color} fontSize="15px">
               Leaderboard
+            </Text>
+          </HStack>
+          <HStack
+            height="50px"
+            w="100%"
+            _hover={{ bg: "blue.500", cursor: "pointer" }}
+            p={3}
+            borderRadius="lg"
+            onClick={redirectPomodoroPage}
+          >
+            <Icon as={FaClock} boxSize={6} />
+            <Text color={color} fontSize="15px">
+              Pomodoro Timer
             </Text>
           </HStack>
           <HStack
