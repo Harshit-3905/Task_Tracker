@@ -19,7 +19,7 @@ const Profile = () => {
     <Box
       d="flex"
       p={5}
-      h="100%"
+      h="80%"
       bg={bgColor}
       w="100%"
       borderRadius="lg"
