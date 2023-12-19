@@ -32,7 +32,14 @@ const Spotify = () => {
     });
   };
   return (
-    <Box h="100%" w="50%" bg={bgColor} color={color} borderRadius="lg">
+    <Box
+      display={{ base: "none", md: "flex", lg: "flex" }}
+      h="100%"
+      w="50%"
+      bg={bgColor}
+      color={color}
+      borderRadius="lg"
+    >
       {!linkTaken && (
         <HStack padding={3} h="15%">
           <Input

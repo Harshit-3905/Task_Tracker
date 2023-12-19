@@ -29,8 +29,8 @@ const Profile = () => {
       justifyItems={"center"}
     >
       <Avatar name={user.name} src={user.pic} size="2xl"></Avatar>
-      <Center>
-        <TableContainer pt={6} p={6} width="70%">
+      <Center width="100%">
+        <TableContainer pt={6} width={{ base: "100%", md: "80%", lg: "70%" }}>
           <Table variant="striped" colorScheme="teal">
             <Tbody color={color} fontSize="15px">
               <Tr>

@@ -41,9 +41,9 @@ const Leaderboard = () => {
       textAlign={"center"}
       color={color}
     >
-      <Text fontSize="20px">Leaderboard</Text>
+      <Text fontSize="30px">Leaderboard</Text>
       <Center>
-        <TableContainer pt={6} p={4} width="80%">
+        <TableContainer pt={6} width={{ base: "100%", md: "80%", lg: "70%" }}>
           <Table
             variant="striped"
             colorScheme="teal"

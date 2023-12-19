@@ -113,7 +113,7 @@ const Clock = (props) => {
   return (
     <VStack bg={bgColor} borderRadius="lg">
       <Box textAlign={"center"} pt={3}>
-        <Text fontSize="20px" color={color} fontFamily={"Roboto"}>
+        <Text fontSize="30px" color={color} fontFamily={"Roboto"}>
           {isBreak ? "BREAK" : "SESSION"}
         </Text>
         <CircularProgress
@@ -121,13 +121,14 @@ const Clock = (props) => {
           thickness="4px"
           value={(_remainingTimeinMs / (pomodoro * 60000)) * 100}
           color="green.400"
+          pt={6}
         >
-          <CircularProgressLabel fontFamily={"Roboto"}>
+          <CircularProgressLabel fontFamily={"Roboto"} pt={6}>
             {minutes} : {seconds}
           </CircularProgressLabel>
         </CircularProgress>
       </Box>
-      <HStack>
+      <HStack pt={6}>
         <Button onClick={changePlayBtn} bg="green.500">
           <Icon as={isPlay ? FaPause : FaPlay} color={color} />
         </Button>

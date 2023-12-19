@@ -25,7 +25,12 @@ const Quote = () => {
       borderRadius="lg"
       textAlign={"center"}
     >
-      <Text fontSize="2xl" pt={2} color={color} fontFamily={"Satisfy"}>
+      <Text
+        fontSize={{ base: "xl", md: "2xl", lg: "2xl" }}
+        pt={2}
+        color={color}
+        fontFamily={"Satisfy"}
+      >
         {quote}
       </Text>
     </Box>
