@@ -109,6 +109,18 @@ const Login = () => {
       >
         Login
       </Button>
+      <Button
+        colorScheme="red"
+        width="100%"
+        style={{ marginTop: 3 }}
+        onClick={() => {
+          setEmail("guest@example.com");
+          setPassword("123456");
+        }}
+        color={color}
+      >
+        Login with Guest Credentials
+      </Button>
     </VStack>
   );
 };
