@@ -25,7 +25,7 @@ const Homepage = () => {
     }
   }, [history]);
   return (
-    <Container maxW="xl" centerContent>
+    <Container w="100%" h="100%" centerContent d="flex" justifyContent="center">
       <Box
         d="flex"
         justifyContent="center"

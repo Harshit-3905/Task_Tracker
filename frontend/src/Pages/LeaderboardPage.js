@@ -10,7 +10,7 @@ const LeaderboardPage = () => {
     <Box width="100vw" height="100vh" padding="15px">
       <HStack style={{ width: "100%", height: "100%" }}>
         <Sidebar />
-        <VStack style={{ width: "80%", height: "100%" }}>
+        <VStack width={{ base: "100%", md: "100%", lg: "80%" }} height="100%">
           <Navbar />
           <Leaderboard />
           <Quote />

@@ -58,7 +58,7 @@ const TaskItem = (task) => {
     <HStack
       height="45px"
       width="100%"
-      bg={"teal.400"}
+      bg={"teal"}
       borderRadius="lg"
       borderWidth="1px"
       marginBottom={2}

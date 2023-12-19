@@ -33,9 +33,9 @@ const Sidebar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Box
+      display={{ base: "none", md: "none", lg: "flex" }}
       height="100%"
       bg={bgColor}
-      d="flex"
       borderRadius="lg"
       textAlign={"center"}
     >
