@@ -35,6 +35,7 @@ const Sidebar = () => {
     <Box
       display={{ base: "none", md: "none", lg: "flex" }}
       height="100%"
+      width="20%"
       bg={bgColor}
       borderRadius="lg"
       textAlign={"center"}
