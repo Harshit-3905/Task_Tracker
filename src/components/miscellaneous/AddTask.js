@@ -65,6 +65,12 @@ const AddTask = () => {
           borderWidth="1px"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              taskAppend();
+            }
+          }}
         />
         <Button
           display={"flex"}
