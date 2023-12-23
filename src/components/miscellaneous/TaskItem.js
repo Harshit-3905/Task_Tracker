@@ -46,13 +46,15 @@ const TaskItem = (task) => {
       { email }
     );
     dispatch(toggleTask(task.id));
-    toast({
-      title: "Task Completed",
-      status: "success",
-      duration: 5000,
-      isClosable: true,
-      position: "bottom",
-    });
+    if (!task.completed) {
+      toast({
+        title: "Task Completed",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+    }
   };
   return (
     <HStack
