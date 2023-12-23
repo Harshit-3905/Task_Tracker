@@ -18,6 +18,8 @@ export const taskReducer = (state = [], action) => {
       );
     case "DELETE_TASK":
       return state.filter((task) => task._id !== action.payload._id);
+    case "LOGOUT":
+      return [];
     default:
       return state;
   }

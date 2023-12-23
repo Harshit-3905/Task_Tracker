@@ -56,3 +56,7 @@ export const deleteTask = (id) => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const logout = () => ({
+  type: "LOGOUT",
+});

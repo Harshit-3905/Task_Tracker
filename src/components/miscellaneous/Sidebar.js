@@ -6,6 +6,8 @@ import { BiLogOut } from "react-icons/bi";
 import { useHistory } from "react-router-dom";
 import { useColorMode } from "@chakra-ui/react";
 import { useColorModeValue } from "@chakra-ui/color-mode";
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/actions/index";
 
 const Sidebar = () => {
   const history = useHistory();
@@ -14,6 +16,7 @@ const Sidebar = () => {
   const pic_url = JSON.parse(localStorage.getItem("userInfo")).pic;
   const color = useColorModeValue("black", "white");
   const bgColor = useColorModeValue("white", "gray.700");
+  const dispatch = useDispatch();
   const profileHandler = () => {
     history.push("/profile");
   };
@@ -28,6 +31,7 @@ const Sidebar = () => {
   };
   const logoutHandler = () => {
     localStorage.removeItem("userInfo");
+    dispatch(logout());
     history.push("/");
   };
   const { colorMode, toggleColorMode } = useColorMode();
