@@ -24,6 +24,7 @@ const TaskContainer = () => {
         borderRadius="lg"
         borderWidth="1px"
         textAlign={"center"}
+        overflowY="scroll"
       >
         {tasks.map((task) => (
           <TaskItem
