@@ -41,17 +41,18 @@ const Spotify = () => {
       borderRadius="lg"
     >
       {!linkTaken && (
-        <HStack padding={3} h="15%">
+        <HStack padding={3} h="15%" w="100%">
           <Input
             placeholder="Add Spotify Playlist Link"
             color={color}
             onChange={(e) => setPlaylistLink(e.target.value)}
             h="100%"
+            w="90%"
           />
           <Button
             display={"flex"}
             height="100%"
-            width="7%"
+            width="10%"
             onClick={playlistAdded}
             bg={"green.300"}
             borderRadius="lg"
