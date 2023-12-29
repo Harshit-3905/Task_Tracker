@@ -26,13 +26,15 @@ const TaskContainer = () => {
         textAlign={"center"}
         overflowY="scroll"
       >
-        {tasks.map((task) => (
-          <TaskItem
-            id={task._id}
-            title={task.title}
-            completed={task.completed}
-          />
-        ))}
+        {tasks &&
+          tasks.map((task) => (
+            <TaskItem
+              id={task._id}
+              title={task.title}
+              completed={task.completed}
+              key={task._id}
+            />
+          ))}
       </Box>
     </VStack>
   );

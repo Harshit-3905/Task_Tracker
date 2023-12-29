@@ -52,6 +52,7 @@ export const deleteTask = (id) => async (dispatch) => {
       `https://tasktrackerbackend-raao.onrender.com/api/task/id?id=${id}`
     );
     dispatch({ type: "DELETE_TASK", payload: res.data });
+    dispatch(getAllTasks());
   } catch (error) {
     console.log(error);
   }
